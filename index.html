@@ -89,7 +89,8 @@ $(document).ready(function(){
 			}
 		} else if($(this).hasClass("operator")) {
 			if ($("#operator").text() !== "") return;
-			$("#operator").text($(this).text());
+            $("#operator").text($(this).text());
+            $("#operator").val($(this).val());
 		} else if($(this).hasClass("equal")) {
 			DoMath();
 		} else if($(this).hasClass("clear")) {
@@ -109,16 +110,16 @@ $(document).ready(function(){
 	}
 
 	function DoMath() {
-		if ($("#operator").text() === "+") {
+		if ($("#operator").val() === "plus") {
 			$("#result").text(parseInt($("#first-number").text()) + parseInt($("#second-number").text()));
-		} else if ($("#operator").text() === "-") {
+		} else if ($("#operator").val() === "minus") {
 			$("#result").text(parseInt($("#first-number").text()) - parseInt($("#second-number").text()));
-		} else if ($("#operator").text() === "*") {
+		} else if ($("#operator").val() === "times") {
 			$("#result").text(parseInt($("#first-number").text()) * parseInt($("#second-number").text()));
-		} else if ($("#operator").text() === "/") {
+		} else if ($("#operator").val() === "divide") {
 			$("#result").text(parseInt($("#first-number").text()) / parseInt($("#second-number").text()));
-		} else if ($("#operator").text() === "^") {
-			$("#result").text(parseInt($("#first-number").text()) ^ parseInt($("#second-number").text()));
+		} else if ($("#operator").val() === "power") {
+			$("#result").text(Math.pow(parseInt($("#first-number").text()), parseInt($("#second-number").text())));
 		}
 	}
 
